@@ -2,17 +2,16 @@ const PLANS = [
   {
     name: 'Lancement',
     badge: '50 premiers agents',
-    price: '99',
-    unit: '\u20ac / mois / agent',
-    description:
-      "Offre fondateurs r\u00e9serv\u00e9e aux 50 premiers agents qui rejoignent ImmoMatch. Prix bloqu\u00e9 \u00e0 vie.",
+    price: '99 €',
+    unit: '/ mois / agent',
+    description: "Offre fondateurs réservée aux 50 premiers agents qui rejoignent ImmoMatch. Prix bloqué à vie.",
     features: [
-      'Digital Cards illimit\u00e9es',
+      'Digital Cards illimitées',
       'Matching IA en 3 passes',
-      'Score d\u2019affinit\u00e9 0\u2013100',
+      "Score d'affinité 0–100",
       'Enrichissement quartier IA',
-      'Acc\u00e8s r\u00e9seau intercabinet',
-      'Prix bloqu\u00e9 \u2014 jamais 200\u00a0\u20ac',
+      'Accès réseau intercabinet',
+      'Prix bloqué — jamais 200 €',
     ],
     cta: 'Rejoindre les fondateurs',
     highlight: false,
@@ -21,35 +20,33 @@ const PLANS = [
   {
     name: 'Agent',
     badge: null,
-    price: '200',
-    unit: '\u20ac / mois',
-    description:
-      "Pour l\u2019agent ind\u00e9pendant qui veut matcher ses clients avec pr\u00e9cision, sans d\u00e9penser en pub.",
+    price: '200 €',
+    unit: '/ mois',
+    description: "Pour l'agent indépendant qui veut matcher ses clients avec précision, sans dépenser en pub.",
     features: [
-      'Digital Cards illimit\u00e9es',
+      'Digital Cards illimitées',
       'Matching IA en 3 passes',
-      'Score d\u2019affinit\u00e9 0\u2013100',
+      "Score d'affinité 0–100",
       'Enrichissement quartier IA',
-      'Acc\u00e8s r\u00e9seau intercabinet',
+      'Accès réseau intercabinet',
     ],
-    cta: 'Demander une d\u00e9mo',
+    cta: 'Demander une démo',
     highlight: true,
     urgent: false,
   },
   {
     name: 'Agence',
     badge: 'Multi-comptes',
-    price: '149',
-    unit: '\u20ac / mois / agent',
-    description:
-      'Pour les cabinets avec plusieurs agents. Minimum 3 comptes. Dashboard partag\u00e9 et pool de mandats commun.',
+    price: '149 €',
+    unit: '/ mois / agent',
+    description: "Pour les cabinets avec plusieurs agents. Minimum 3 comptes. Dashboard partagé et pool de mandats commun.",
     features: [
-      'Tout ce qu\u2019inclut Agent',
-      'Dashboard cabinet centralis\u00e9',
-      'Pool de mandats partag\u00e9',
+      "Tout ce qu'inclut Agent",
+      'Dashboard cabinet centralisé',
+      'Pool de mandats partagé',
       'Gestion multi-agents',
       'Stats cabinet globales',
-      'Onboarding \u00e9quipe d\u00e9di\u00e9',
+      'Onboarding équipe dédié',
     ],
     cta: 'Nous contacter',
     highlight: false,
@@ -57,34 +54,30 @@ const PLANS = [
   },
 ]
 
-
 export default function TarifsSection() {
   return (
     <section id="tarifs" className="bg-[#080808] text-white py-32 px-6 border-t border-white/10">
       <div className="max-w-7xl mx-auto">
 
-        {/* Eyebrow */}
         <p className="text-xs font-medium tracking-[0.2em] uppercase text-white/40 mb-6">
           Tarifs
         </p>
 
-        {/* Heading */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-20 items-end">
           <h2
             className="text-4xl sm:text-5xl xl:text-6xl font-semibold leading-[1.05]"
             style={{ letterSpacing: '-0.04em' }}
           >
             SaaS pur.<br />
-            <span className="text-white/40">Z\u00e9ro commission.</span>
+            <span className="text-white/40">Zéro commission.</span>
           </h2>
           <p className="text-gray-400 text-lg leading-relaxed">
-            Revenus r\u00e9currents, mod\u00e8le pr\u00e9visible. Pas de frais sur transaction,
-            pas de surprise. L\u2019agent paie un abonnement fixe \u2014 ImmoMatch travaille pour lui chaque mois.
+            Revenus récurrents, modèle prévisible. Pas de frais sur transaction,
+            pas de surprise. L'agent paie un abonnement fixe — ImmoMatch travaille pour lui chaque mois.
           </p>
         </div>
 
-        {/* Plans */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {PLANS.map(({ name, badge, price, unit, description, features, cta, highlight, urgent }) => (
             <div
               key={name}
@@ -94,7 +87,6 @@ export default function TarifsSection() {
                   : 'bg-white/5 text-white border-white/10'
               }`}
             >
-              {/* Badge */}
               {badge && (
                 <span
                   className={`absolute top-4 right-4 text-[10px] font-medium tracking-[0.12em] uppercase px-2.5 py-1 rounded-full ${
@@ -109,7 +101,6 @@ export default function TarifsSection() {
                 </span>
               )}
 
-              {/* Plan name + price */}
               <div>
                 <p className={`text-xs font-medium tracking-[0.15em] uppercase mb-6 ${highlight ? 'text-black/40' : 'text-white/40'}`}>
                   {name}
@@ -119,7 +110,7 @@ export default function TarifsSection() {
                     className="font-semibold leading-none"
                     style={{ letterSpacing: '-0.04em', fontSize: '3rem' }}
                   >
-                    {price}\u00a0\u20ac
+                    {price}
                   </span>
                 </div>
                 <p className={`text-xs mb-4 ${highlight ? 'text-black/40' : 'text-white/30'}`}>
@@ -130,12 +121,11 @@ export default function TarifsSection() {
                 </p>
               </div>
 
-              {/* Features */}
               <ul className="flex flex-col gap-3 flex-1">
                 {features.map(f => (
                   <li key={f} className="flex items-start gap-3 text-sm">
                     <span className={`mt-0.5 leading-none ${highlight ? 'text-black/40' : 'text-white/30'}`}>
-                      \u2192
+                      →
                     </span>
                     <span className={highlight ? 'text-black/80' : 'text-gray-300'}>
                       {f}
@@ -144,7 +134,6 @@ export default function TarifsSection() {
                 ))}
               </ul>
 
-              {/* CTA */}
               <button
                 className={`w-full rounded-xl py-3 text-sm font-medium transition-opacity hover:opacity-80 ${
                   highlight
@@ -161,7 +150,7 @@ export default function TarifsSection() {
         </div>
 
         <p className="text-center text-white/20 text-xs mt-8">
-          Tous les tarifs sont HT. Engagement mensuel, sans frais de r\u00e9siliation. Agence\u00a0: minimum 3 comptes.
+          Tous les tarifs sont HT. Engagement mensuel, sans frais de résiliation. Agence : minimum 3 comptes.
         </p>
 
       </div>
