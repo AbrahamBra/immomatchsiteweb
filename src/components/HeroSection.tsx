@@ -129,9 +129,9 @@ export default function HeroSection() {
                 transitionDelay: '0ms',
               }}
             >
-              Notre IA scrape le marché en temps réel, analyse les critères et le
-              lifestyle de vos clients, et vous propose uniquement les biens qui
-              matchent vraiment.
+              Partez du client qualifié, pas du bien à vendre. Notre moteur IA
+              analyse le profil lifestyle de vos acheteurs et les matche avec
+              les meilleurs mandats du réseau intercabinet — en temps réel.
             </p>
 
             {/* Action Buttons */}
@@ -146,7 +146,7 @@ export default function HeroSection() {
                 Demander une démo
               </button>
               <button className="liquid-glass text-white font-medium rounded-lg px-5 py-2.5 text-sm border border-white/20 hover:bg-white/10 transition-colors duration-200">
-                Voir le fonctionnement
+                Voir le moteur IA
               </button>
             </div>
           </div>
@@ -161,7 +161,7 @@ export default function HeroSection() {
               }}
             >
               <span className="text-lg lg:text-2xl font-light text-white tracking-tight">
-                IA. Scraping. Matching Précis.
+                Qualification. Matching IA. Intercabinet.
               </span>
             </div>
           </div>
