@@ -5,7 +5,7 @@ const PLANS = [
     price: '99',
     unit: '\u20ac / mois / agent',
     description:
-      "Offre fondateurs r\u00e9serv\u00e9e aux 50 premiers agents qui rejoignent Zefir. Prix bloqu\u00e9 \u00e0 vie.",
+      "Offre fondateurs r\u00e9serv\u00e9e aux 50 premiers agents qui rejoignent ImmoMatch. Prix bloqu\u00e9 \u00e0 vie.",
     features: [
       'Digital Cards illimit\u00e9es',
       'Matching IA en 3 passes',
@@ -57,11 +57,6 @@ const PLANS = [
   },
 ]
 
-const MRR_PHASES = [
-  { phase: 'Lancement', agents: '50', mrr: '4 950\u00a0\u20ac' },
-  { phase: 'Phase 2', agents: '200', mrr: '~35 000\u00a0\u20ac' },
-  { phase: 'Phase 3', agents: '500', mrr: '~90 000\u00a0\u20ac' },
-]
 
 export default function TarifsSection() {
   return (
@@ -84,7 +79,7 @@ export default function TarifsSection() {
           </h2>
           <p className="text-gray-400 text-lg leading-relaxed">
             Revenus r\u00e9currents, mod\u00e8le pr\u00e9visible. Pas de frais sur transaction,
-            pas de surprise. L\u2019agent paie un abonnement fixe \u2014 Zefir travaille pour lui chaque mois.
+            pas de surprise. L\u2019agent paie un abonnement fixe \u2014 ImmoMatch travaille pour lui chaque mois.
           </p>
         </div>
 
@@ -163,29 +158,6 @@ export default function TarifsSection() {
               </button>
             </div>
           ))}
-        </div>
-
-        {/* MRR projection */}
-        <div className="border border-white/10 rounded-2xl overflow-hidden">
-          <div className="px-8 py-5 border-b border-white/10">
-            <p className="text-xs font-medium tracking-[0.15em] uppercase text-white/30">
-              Projection MRR \u2014 mod\u00e8le SaaS pur
-            </p>
-          </div>
-          <div className="grid grid-cols-3 divide-x divide-white/10">
-            {MRR_PHASES.map(({ phase, agents, mrr }) => (
-              <div key={phase} className="px-8 py-8">
-                <p className="text-xs text-white/30 uppercase tracking-[0.12em] mb-3">{phase}</p>
-                <p
-                  className="text-3xl font-semibold text-white mb-1"
-                  style={{ letterSpacing: '-0.04em' }}
-                >
-                  {mrr}
-                </p>
-                <p className="text-xs text-white/40">{agents} agents payants</p>
-              </div>
-            ))}
-          </div>
         </div>
 
         <p className="text-center text-white/20 text-xs mt-8">

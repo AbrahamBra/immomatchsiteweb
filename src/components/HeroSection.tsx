@@ -62,7 +62,7 @@ export default function HeroSection() {
       <header className="absolute top-0 left-0 right-0 z-20">
         <div className="max-w-7xl mx-auto px-8 py-3 flex items-center justify-between relative">
           <span className="text-xl font-semibold tracking-tight text-white select-none">
-            Zefir
+            ImmoMatch
           </span>
 
           <ul className="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
