@@ -60,16 +60,16 @@ export default function HeroSection() {
       <div className="absolute inset-0 bg-black/40" />
 
       {/* Navbar */}
-      <header className="absolute top-0 left-0 right-0 z-20 px-6 pt-5">
-        <nav className="liquid-glass rounded-xl px-6 py-3 flex items-center justify-between max-w-7xl mx-auto">
+      <header className="absolute top-0 left-0 right-0 z-20">
+        <div className="max-w-7xl mx-auto px-8 py-5 flex items-center justify-between relative">
           {/* Logo */}
           <span className="text-2xl font-semibold tracking-tight text-white select-none">
             VEX
           </span>
 
-          {/* Nav links */}
-          <ul className="hidden md:flex items-center gap-8">
-            {['Story', 'Matching', 'Data', 'Advisory'].map(link => (
+          {/* Nav links — truly centered in the header */}
+          <ul className="hidden md:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
+            {['Concept', 'Fonctionnement', 'Réseau', 'Tarifs'].map(link => (
               <li key={link}>
                 <a
                   href="#"
@@ -85,7 +85,7 @@ export default function HeroSection() {
           <button className="bg-white text-black text-sm font-medium rounded-lg px-4 py-2 hover:bg-white/90 transition-colors duration-200">
             Demander une démo
           </button>
-        </nav>
+        </div>
       </header>
 
       {/* Hero Content */}
