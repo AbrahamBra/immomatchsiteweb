@@ -45,21 +45,20 @@ function StatValue({ value, prefix, suffix }: { value: number; prefix?: string; 
 
 export default function ReseauSection() {
   return (
-    <section id="reseau" className="bg-black text-white py-32 px-6 border-t border-white/10">
+    <section id="reseau" className="bg-surface text-white py-32 px-6 border-t border-white/[0.06]">
       <div className="max-w-7xl mx-auto">
 
-        <p className="text-xs font-medium tracking-[0.2em] uppercase text-white/40 mb-6">
+        <p className="text-xs font-medium tracking-[0.2em] uppercase text-accent mb-6">
           Réseau
         </p>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-24 items-end">
           <TitleReveal
             segments={[{ text: "Plus seul face au marché." }]}
-            className="text-4xl sm:text-5xl xl:text-6xl font-semibold leading-[1.05]"
-            style={{ letterSpacing: '-0.04em' }}
+            className="font-serif text-display"
           />
           <FadeUp delay={0.2}>
-            <p className="text-gray-400 text-lg leading-relaxed">
+            <p className="text-white/50 text-lg leading-relaxed">
               Le vrai avantage concurrentiel d'un agent n'est pas son catalogue — c'est
               sa connaissance de ses clients. ImmoMatch transforme cette connaissance en
               matching automatique à l'échelle du réseau.
@@ -67,49 +66,42 @@ export default function ReseauSection() {
           </FadeUp>
         </div>
 
-        <StaggerContainer stagger={0.1} className="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/10 rounded-2xl overflow-hidden">
-          {STATS.map(({ numericValue, prefix, suffix, label, sub }) => (
+        {/* Stats — hero stat left, two smaller right */}
+        <StaggerContainer stagger={0.1} className="grid grid-cols-1 md:grid-cols-[1.5fr_1fr_1fr] gap-px bg-white/[0.06] rounded-2xl overflow-hidden mb-24">
+          {STATS.map(({ numericValue, prefix, suffix, label, sub }, i) => (
             <StaggerItem key={label}>
-              <div className="bg-black px-10 py-10">
+              <div className={`bg-surface ${i === 0 ? 'px-10 py-14' : 'px-8 py-10'}`}>
                 <p
-                  className="text-5xl font-semibold text-white mb-3"
+                  className={`font-serif text-white mb-3 ${i === 0 ? 'text-7xl' : 'text-5xl'}`}
                   style={{ letterSpacing: '-0.04em' }}
                 >
                   <StatValue value={numericValue} prefix={prefix} suffix={suffix} />
                 </p>
                 <FadeUp delay={0.2}>
-                  <p className="text-sm font-medium text-white/70 mb-1">{label}</p>
-                  <p className="text-xs text-white/30">{sub}</p>
+                  <p className="text-sm font-medium text-white/60 mb-1">{label}</p>
+                  <p className="text-xs text-white/25">{sub}</p>
                 </FadeUp>
               </div>
             </StaggerItem>
           ))}
         </StaggerContainer>
 
-        <motion.div
-          className="h-px bg-white/10 my-24"
-          initial={{ scaleX: 0 }}
-          whileInView={{ scaleX: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4, ease: "easeOut" }}
-          style={{ transformOrigin: "left" }}
-        />
-
-        <StaggerContainer stagger={0.1} className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/10 border border-white/10 rounded-2xl overflow-hidden">
+        {/* Benefits — 2x2 grid with accent hover glow */}
+        <StaggerContainer stagger={0.08} className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {BENEFITS.map(({ title, body }) => (
             <StaggerItem key={title}>
               <motion.div
-                className="bg-black p-10"
-                whileHover={{ backgroundColor: 'rgba(255,255,255,0.03)' }}
-                transition={{ duration: 0.2 }}
+                className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-8 h-full"
+                whileHover={{
+                  borderColor: 'rgba(200,117,51,0.2)',
+                  backgroundColor: 'rgba(200,117,51,0.03)',
+                }}
+                transition={{ duration: 0.3 }}
               >
-                <h3
-                  className="text-lg font-semibold text-white mb-3"
-                  style={{ letterSpacing: '-0.02em' }}
-                >
+                <h3 className="text-lg font-serif text-white mb-3" style={{ letterSpacing: '-0.02em' }}>
                   {title}
                 </h3>
-                <p className="text-sm text-gray-400 leading-relaxed">{body}</p>
+                <p className="text-sm text-white/40 leading-relaxed">{body}</p>
               </motion.div>
             </StaggerItem>
           ))}

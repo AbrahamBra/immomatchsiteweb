@@ -55,10 +55,10 @@ function StepNumber({ value }: { value: string }) {
 
 export default function FonctionnementSection() {
   return (
-    <section id="fonctionnement" className="bg-[#080808] text-white py-32 px-6 border-t border-white/10">
+    <section id="fonctionnement" className="bg-surface-elevated text-white py-32 px-6 border-t border-white/[0.06]">
       <div className="max-w-7xl mx-auto">
 
-        <p className="text-xs font-medium tracking-[0.2em] uppercase text-white/40 mb-6">
+        <p className="text-xs font-medium tracking-[0.2em] uppercase text-accent mb-6">
           Fonctionnement
         </p>
 
@@ -67,12 +67,11 @@ export default function FonctionnementSection() {
             { text: "Trois étapes." },
             { text: "Un seul résultat qui compte.", className: "text-white/40" },
           ]}
-          className="text-4xl sm:text-5xl xl:text-6xl font-semibold leading-[1.05] mb-6 max-w-3xl"
-          style={{ letterSpacing: '-0.04em' }}
+          className="font-serif text-display mb-6 max-w-3xl"
         />
 
         <FadeUp delay={0.2}>
-          <p className="text-gray-400 text-lg max-w-xl leading-relaxed mb-24">
+          <p className="text-white/50 text-lg max-w-xl leading-relaxed mb-24">
             De la qualification à la proposition. ImmoMatch automatise la chaîne de
             valeur complète, sans friction pour l'agent.
           </p>
@@ -82,7 +81,7 @@ export default function FonctionnementSection() {
           {STEPS.map((step) => (
             <StaggerItem key={step.number}>
               <motion.div
-                className="h-px bg-white/10"
+                className="h-px bg-white/[0.06]"
                 initial={{ scaleX: 0 }}
                 whileInView={{ scaleX: 1 }}
                 viewport={{ once: true }}
@@ -95,17 +94,17 @@ export default function FonctionnementSection() {
                 transition={{ duration: 0.2 }}
               >
                 <div className="flex items-start pt-1">
-                  <span className="text-5xl font-semibold text-white/10 leading-none" style={{ letterSpacing: '-0.04em' }}>
+                  <span className="text-5xl font-serif text-accent/20 leading-none" style={{ letterSpacing: '-0.04em' }}>
                     <StepNumber value={step.number} />
                   </span>
                 </div>
 
                 <div className="flex flex-col lg:flex-row gap-8 lg:gap-16">
                   <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-white mb-4" style={{ letterSpacing: '-0.02em' }}>
+                    <h3 className="text-xl font-serif text-white mb-4" style={{ letterSpacing: '-0.02em' }}>
                       {step.title}
                     </h3>
-                    <p className="text-gray-400 leading-relaxed max-w-lg">
+                    <p className="text-white/40 leading-relaxed max-w-lg">
                       {step.description}
                     </p>
 
@@ -115,7 +114,7 @@ export default function FonctionnementSection() {
                           <StaggerItem key={sub.label}>
                             <div className="flex gap-4 items-start">
                               <motion.div
-                                className="w-px self-stretch min-h-[24px] mt-1.5 ml-1 bg-white/20"
+                                className="w-px self-stretch min-h-[24px] mt-1.5 ml-1 bg-accent/30"
                                 variants={{
                                   hidden: { scaleY: 0 },
                                   visible: { scaleY: 1, transition: { duration: 0.3 } },
@@ -123,10 +122,10 @@ export default function FonctionnementSection() {
                                 style={{ transformOrigin: "top" }}
                               />
                               <div>
-                                <span className="text-xs font-medium tracking-[0.15em] uppercase text-white/50 block mb-1">
+                                <span className="text-xs font-medium tracking-[0.15em] uppercase text-accent/60 block mb-1">
                                   {sub.label}
                                 </span>
-                                <p className="text-sm text-gray-400">{sub.text}</p>
+                                <p className="text-sm text-white/40">{sub.text}</p>
                               </div>
                             </div>
                           </StaggerItem>
@@ -136,7 +135,7 @@ export default function FonctionnementSection() {
                   </div>
 
                   <div className="flex lg:items-start lg:justify-end">
-                    <span className="inline-block text-xs font-medium tracking-[0.1em] uppercase text-white/40 border border-white/15 rounded-full px-4 py-2 whitespace-nowrap h-fit">
+                    <span className="inline-block text-xs font-medium tracking-[0.1em] uppercase text-accent/40 border border-accent/15 rounded-full px-4 py-2 whitespace-nowrap h-fit">
                       {step.detail}
                     </span>
                   </div>
@@ -145,7 +144,7 @@ export default function FonctionnementSection() {
             </StaggerItem>
           ))}
           <motion.div
-            className="h-px bg-white/10"
+            className="h-px bg-white/[0.06]"
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true }}

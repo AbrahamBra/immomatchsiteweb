@@ -82,10 +82,10 @@ function PriceCounter({ value }: { value: number }) {
 
 export default function TarifsSection() {
   return (
-    <section id="tarifs" className="bg-[#080808] text-white py-32 px-6 border-t border-white/10">
+    <section id="tarifs" className="bg-surface-elevated text-white py-32 px-6 border-t border-white/[0.06]">
       <div className="max-w-7xl mx-auto">
 
-        <p className="text-xs font-medium tracking-[0.2em] uppercase text-white/40 mb-6">
+        <p className="text-xs font-medium tracking-[0.2em] uppercase text-accent mb-6">
           Tarifs
         </p>
 
@@ -95,11 +95,10 @@ export default function TarifsSection() {
               { text: "SaaS pur." },
               { text: "Zéro commission.", className: "text-white/40" },
             ]}
-            className="text-4xl sm:text-5xl xl:text-6xl font-semibold leading-[1.05]"
-            style={{ letterSpacing: '-0.04em' }}
+            className="font-serif text-display"
           />
           <FadeUp delay={0.2}>
-            <p className="text-gray-400 text-lg leading-relaxed">
+            <p className="text-white/50 text-lg leading-relaxed">
               Revenus récurrents, modèle prévisible. Pas de frais sur transaction,
               pas de surprise. L'agent paie un abonnement fixe — ImmoMatch travaille pour lui chaque mois.
             </p>
@@ -118,20 +117,25 @@ export default function TarifsSection() {
               <motion.div
                 className={`rounded-2xl p-8 flex flex-col gap-8 border relative ${
                   highlight
-                    ? 'bg-white text-black border-white'
-                    : 'bg-white/5 text-white border-white/10'
+                    ? 'bg-accent text-white border-accent accent-glow'
+                    : urgent
+                    ? 'bg-white/[0.03] text-white border-accent/20'
+                    : 'bg-white/[0.03] text-white border-white/[0.06]'
                 }`}
-                style={highlight ? { boxShadow: '0 0 40px rgba(255,255,255,0.08)' } : undefined}
-                whileHover={{ scale: 1.02, borderColor: highlight ? 'rgba(255,255,255,1)' : 'rgba(255,255,255,0.4)' }}
+                style={highlight ? { boxShadow: '0 0 60px rgba(200,117,51,0.15)' } : undefined}
+                whileHover={{
+                  scale: 1.02,
+                  borderColor: highlight ? 'rgba(200,117,51,1)' : urgent ? 'rgba(200,117,51,0.4)' : 'rgba(255,255,255,0.15)',
+                }}
                 transition={{ duration: 0.2 }}
               >
                 {badge && (
                   <span
                     className={`absolute top-4 right-4 text-[10px] font-medium tracking-[0.12em] uppercase px-2.5 py-1 rounded-full ${
                       urgent
-                        ? 'bg-white/15 text-white'
+                        ? 'bg-accent/15 text-accent border border-accent/20'
                         : highlight
-                        ? 'bg-black/10 text-black/60'
+                        ? 'bg-white/15 text-white/80'
                         : 'bg-white/10 text-white/50'
                     }`}
                   >
@@ -140,19 +144,19 @@ export default function TarifsSection() {
                 )}
 
                 <div>
-                  <p className={`text-xs font-medium tracking-[0.15em] uppercase mb-6 ${highlight ? 'text-black/40' : 'text-white/40'}`}>
+                  <p className={`text-xs font-medium tracking-[0.15em] uppercase mb-6 ${highlight ? 'text-white/60' : 'text-white/30'}`}>
                     {name}
                   </p>
                   <div className="flex items-end gap-1.5 mb-1">
                     <span
-                      className="font-semibold leading-none"
+                      className="font-serif leading-none"
                       style={{ letterSpacing: '-0.04em', fontSize: '3rem' }}
                     >
                       <PriceCounter value={numericPrice} />
                     </span>
                   </div>
                   <motion.p
-                    className={`text-xs mb-4 ${highlight ? 'text-black/40' : 'text-white/30'}`}
+                    className={`text-xs mb-4 ${highlight ? 'text-white/50' : 'text-white/25'}`}
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
@@ -160,7 +164,7 @@ export default function TarifsSection() {
                   >
                     {unit}
                   </motion.p>
-                  <p className={`text-sm leading-relaxed ${highlight ? 'text-black/60' : 'text-gray-400'}`}>
+                  <p className={`text-sm leading-relaxed ${highlight ? 'text-white/80' : 'text-white/40'}`}>
                     {description}
                   </p>
                 </div>
@@ -178,10 +182,10 @@ export default function TarifsSection() {
                         visible: { opacity: 1, x: 0, transition: { duration: 0.3 } },
                       }}
                     >
-                      <span className={`mt-0.5 leading-none ${highlight ? 'text-black/40' : 'text-white/30'}`}>
+                      <span className={`mt-0.5 leading-none ${highlight ? 'text-white/50' : 'text-accent/40'}`}>
                         →
                       </span>
-                      <span className={highlight ? 'text-black/80' : 'text-gray-300'}>
+                      <span className={highlight ? 'text-white/90' : 'text-white/60'}>
                         {f}
                       </span>
                     </motion.li>
@@ -190,12 +194,12 @@ export default function TarifsSection() {
 
                 <FadeUp delay={0.4}>
                   <button
-                    className={`w-full rounded-xl py-3 text-sm font-medium transition-opacity hover:opacity-80 ${
+                    className={`w-full rounded-xl py-3 text-sm font-medium transition-all duration-200 ${
                       highlight
-                        ? 'bg-black text-white'
+                        ? 'bg-white text-accent hover:bg-white/90'
                         : urgent
-                        ? 'bg-white text-black'
-                        : 'bg-white/10 text-white border border-white/15'
+                        ? 'bg-accent text-white hover:bg-accent-hover'
+                        : 'bg-white/[0.06] text-white border border-white/[0.08] hover:bg-white/10'
                     }`}
                   >
                     {cta}

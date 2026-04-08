@@ -54,7 +54,7 @@ export default function HeroSection() {
   let globalCharIdx = 0
 
   return (
-    <section className="relative w-full h-screen overflow-hidden bg-black font-sans antialiased">
+    <section className="relative w-full h-screen overflow-hidden bg-surface antialiased">
       {/* Video */}
       <video
         className="absolute inset-0 w-full h-full object-cover"
@@ -92,7 +92,7 @@ export default function HeroSection() {
             ))}
           </ul>
 
-          <button className="bg-white text-black text-sm font-medium rounded-lg px-4 py-1.5 hover:bg-white/90 transition-colors duration-200">
+          <button className="bg-accent text-white text-sm font-medium rounded-lg px-4 py-1.5 hover:bg-accent-hover transition-colors duration-200">
             Demander une démo
           </button>
         </div>
@@ -105,7 +105,7 @@ export default function HeroSection() {
           {/* Left */}
           <div className="flex flex-col gap-5">
             <h1
-              className="text-4xl sm:text-5xl xl:text-[4.5rem] font-semibold text-white leading-[1.05]"
+              className="text-4xl sm:text-5xl xl:text-[4.5rem] font-serif text-white leading-[1.05]"
               style={{ letterSpacing: '-0.04em' }}
               aria-label="Les biens parfaits pour vos clients."
             >
@@ -150,7 +150,7 @@ export default function HeroSection() {
             >
               Partez du client qualifié, pas du bien à vendre. Notre moteur IA analyse
               le profil lifestyle de vos acheteurs et les matche avec les meilleurs
-              mandats du réseau intercabinet — en temps réel.
+              mandats du réseau intercabinet, en temps réel.
             </p>
 
             <div
@@ -161,7 +161,7 @@ export default function HeroSection() {
                 transition: 'opacity 900ms, transform 900ms',
               }}
             >
-              <button className="bg-white text-black font-medium rounded-lg px-5 py-2.5 text-sm hover:bg-white/90 transition-colors duration-200">
+              <button className="bg-accent text-white font-medium rounded-lg px-5 py-2.5 text-sm hover:bg-accent-hover transition-colors duration-200">
                 Demander une démo
               </button>
               <button className="liquid-glass text-white font-medium rounded-lg px-5 py-2.5 text-sm border border-white/20 hover:bg-white/10 transition-colors duration-200">
