@@ -1,13 +1,19 @@
+import { motion } from "framer-motion"
+import { TitleReveal } from "./motion/TitleReveal"
+import { FadeUp } from "./motion/FadeUp"
+import { StaggerContainer, StaggerItem } from "./motion/StaggerContainer"
+import { useCountUp } from "../hooks/useCountUp"
+
 const STATS = [
-  { value: '0 €', label: "Coût d'acquisition client", sub: 'La donnée existait déjà' },
-  { value: '3', label: 'passes IA par matching', sub: 'SQL → Score → Sémantique' },
-  { value: '≥ 40', label: "Score d'affinité minimum", sub: 'Sur 100 pour être proposé' },
+  { numericValue: 0, prefix: '', suffix: ' €', label: "Coût d'acquisition client", sub: 'La donnée existait déjà' },
+  { numericValue: 3, prefix: '', suffix: '', label: 'passes IA par matching', sub: 'SQL → Score → Sémantique' },
+  { numericValue: 40, prefix: '≥ ', suffix: '', label: "Score d'affinité minimum", sub: 'Sur 100 pour être proposé' },
 ]
 
 const BENEFITS = [
   {
     title: 'Zéro silo entre agences',
-    body: "Chaque cabinet partenaire alimente un catalogue commun. Votre client accède à l'ensemble du réseau — pas seulement à vos mandats propres.",
+    body: "Chaque cabinet partenaire alimente un catalogue commun. Votre client accède à l'ensemble du réseau, pas seulement à vos mandats propres.",
   },
   {
     title: 'Donnée qui existait déjà',
@@ -23,6 +29,20 @@ const BENEFITS = [
   },
 ]
 
+function StatValue({ value, prefix, suffix }: { value: number; prefix?: string; suffix?: string }) {
+  const { ref, rounded } = useCountUp(value, 1.5)
+  if (value === 0) {
+    return <span>{prefix}{value}{suffix}</span>
+  }
+  return (
+    <span ref={ref}>
+      {prefix}
+      <motion.span>{rounded}</motion.span>
+      {suffix}
+    </span>
+  )
+}
+
 export default function ReseauSection() {
   return (
     <section id="reseau" className="bg-black text-white py-32 px-6 border-t border-white/10">
@@ -33,48 +53,67 @@ export default function ReseauSection() {
         </p>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-24 items-end">
-          <h2
+          <TitleReveal
+            segments={[{ text: "Plus seul face au marché." }]}
             className="text-4xl sm:text-5xl xl:text-6xl font-semibold leading-[1.05]"
             style={{ letterSpacing: '-0.04em' }}
-          >
-            Plus seul face<br />
-            au marché.
-          </h2>
-          <p className="text-gray-400 text-lg leading-relaxed">
-            Le vrai avantage concurrentiel d'un agent n'est pas son catalogue — c'est
-            sa connaissance de ses clients. ImmoMatch transforme cette connaissance en
-            matching automatique à l'échelle du réseau.
-          </p>
+          />
+          <FadeUp delay={0.2}>
+            <p className="text-gray-400 text-lg leading-relaxed">
+              Le vrai avantage concurrentiel d'un agent n'est pas son catalogue — c'est
+              sa connaissance de ses clients. ImmoMatch transforme cette connaissance en
+              matching automatique à l'échelle du réseau.
+            </p>
+          </FadeUp>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/10 rounded-2xl overflow-hidden mb-24">
-          {STATS.map(({ value, label, sub }) => (
-            <div key={label} className="bg-black px-10 py-10">
-              <p
-                className="text-5xl font-semibold text-white mb-3"
-                style={{ letterSpacing: '-0.04em' }}
-              >
-                {value}
-              </p>
-              <p className="text-sm font-medium text-white/70 mb-1">{label}</p>
-              <p className="text-xs text-white/30">{sub}</p>
-            </div>
+        <StaggerContainer stagger={0.1} className="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/10 rounded-2xl overflow-hidden">
+          {STATS.map(({ numericValue, prefix, suffix, label, sub }) => (
+            <StaggerItem key={label}>
+              <div className="bg-black px-10 py-10">
+                <p
+                  className="text-5xl font-semibold text-white mb-3"
+                  style={{ letterSpacing: '-0.04em' }}
+                >
+                  <StatValue value={numericValue} prefix={prefix} suffix={suffix} />
+                </p>
+                <FadeUp delay={0.2}>
+                  <p className="text-sm font-medium text-white/70 mb-1">{label}</p>
+                  <p className="text-xs text-white/30">{sub}</p>
+                </FadeUp>
+              </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/10 border border-white/10 rounded-2xl overflow-hidden">
+        <motion.div
+          className="h-px bg-white/10 my-24"
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
+          style={{ transformOrigin: "left" }}
+        />
+
+        <StaggerContainer stagger={0.1} className="grid grid-cols-1 md:grid-cols-2 gap-px bg-white/10 border border-white/10 rounded-2xl overflow-hidden">
           {BENEFITS.map(({ title, body }) => (
-            <div key={title} className="bg-black p-10">
-              <h3
-                className="text-lg font-semibold text-white mb-3"
-                style={{ letterSpacing: '-0.02em' }}
+            <StaggerItem key={title}>
+              <motion.div
+                className="bg-black p-10"
+                whileHover={{ backgroundColor: 'rgba(255,255,255,0.03)' }}
+                transition={{ duration: 0.2 }}
               >
-                {title}
-              </h3>
-              <p className="text-sm text-gray-400 leading-relaxed">{body}</p>
-            </div>
+                <h3
+                  className="text-lg font-semibold text-white mb-3"
+                  style={{ letterSpacing: '-0.02em' }}
+                >
+                  {title}
+                </h3>
+                <p className="text-sm text-gray-400 leading-relaxed">{body}</p>
+              </motion.div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerContainer>
 
       </div>
     </section>
