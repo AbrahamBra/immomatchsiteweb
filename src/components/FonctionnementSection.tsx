@@ -55,7 +55,7 @@ function StepNumber({ value }: { value: string }) {
 
 export default function FonctionnementSection() {
   return (
-    <section id="fonctionnement" className="bg-surface-elevated text-white py-32 px-6 border-t border-white/[0.06]">
+    <section id="fonctionnement" className="bg-black/65 backdrop-blur-sm text-white py-32 px-6 border-t border-white/[0.06]">
       <div className="max-w-7xl mx-auto">
 
         <p className="text-xs font-medium tracking-[0.2em] uppercase text-accent mb-6">

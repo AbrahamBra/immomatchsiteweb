@@ -45,7 +45,7 @@ function StatValue({ value, prefix, suffix }: { value: number; prefix?: string; 
 
 export default function ReseauSection() {
   return (
-    <section id="reseau" className="bg-surface text-white py-32 px-6 border-t border-white/[0.06]">
+    <section id="reseau" className="bg-black/60 backdrop-blur-sm text-white py-32 px-6 border-t border-white/[0.06]">
       <div className="max-w-7xl mx-auto">
 
         <p className="text-xs font-medium tracking-[0.2em] uppercase text-accent mb-6">
@@ -70,7 +70,7 @@ export default function ReseauSection() {
         <StaggerContainer stagger={0.1} className="grid grid-cols-1 md:grid-cols-[1.5fr_1fr_1fr] gap-px bg-white/[0.06] rounded-2xl overflow-hidden mb-24">
           {STATS.map(({ numericValue, prefix, suffix, label, sub }, i) => (
             <StaggerItem key={label}>
-              <div className={`bg-surface ${i === 0 ? 'px-10 py-14' : 'px-8 py-10'}`}>
+              <div className={`bg-black/80 ${i === 0 ? 'px-10 py-14' : 'px-8 py-10'}`}>
                 <p
                   className={`font-serif text-white mb-3 ${i === 0 ? 'text-7xl' : 'text-5xl'}`}
                   style={{ letterSpacing: '-0.04em' }}

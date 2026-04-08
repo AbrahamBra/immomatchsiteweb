@@ -40,7 +40,7 @@ const IMMOMATCH = {
 
 export default function ConceptSection() {
   return (
-    <section id="concept" className="bg-surface text-white py-32 px-6">
+    <section id="concept" className="bg-black/60 backdrop-blur-sm text-white py-32 px-6">
       <div className="max-w-7xl mx-auto">
 
         <p className="text-xs font-medium tracking-[0.2em] uppercase text-accent mb-6">
